@@ -20,4 +20,5 @@ Route::get('/azucar', function () {
 Route::view('/index', 'index');
 Route::get('/reservas/{id}', [reservaController::class, 'show'])->name('reservas.show');
 Route::post('/reservas/create/{id}', [reservaController::class, 'store'])->name('reservas.store');
+Route::post('/reservas/consultarCubiculo/{id}', [reservaController::class, 'consultarCubiculo'])->name('reservas.consultarCubiculo');
 
