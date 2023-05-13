@@ -38,12 +38,35 @@
                                                 <label for="email">Dias</label>
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" value="Kira" id="mascota" name="mascota" placeholder="Subject">
+                                                <select name="mascota" id="mascota" class="form-control border-0">
+                                                    @foreach($datosMascotas as $dato)
+                                                        <option value="{{$dato->mascota->id_mascota}}">{{$dato->mascota->nombre}}</option>
+
+                                                    @endforeach
+                                                </select>
+
                                                 <label for="subject">Nombre de mascota</label>
+                                                <hr>
                                             </div>
                                         </div>
+
+                                        <div class="col-6">
+                                            <div class="form-floating">
+                                                <select name="cubiculo" id="cubiculo" class="form-control border-0">
+                                                    @foreach($cubiculos as $dato)
+                                                        <option value="{{$dato->idcubiculo}}">{{$dato->nombre}} - {{$dato->tamano}}</option>
+
+                                                    @endforeach
+                                                </select>
+                                                <label for="subject">Seleccione un Cubiculo</label>
+                                                <hr>
+                                                <button type="button" onclick="consultarcubiculo({{$dataguarderia->idguarderia}})" class="btn btn-success w-100 py-1 ">Verificar Cubiculo</button>
+                                            </div>
+                                        </div>
+
+
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <textarea class="form-control border-0" placeholder="Leave a message here" id="message" name="message" style="height: 100px"></textarea>
